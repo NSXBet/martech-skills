@@ -31,7 +31,7 @@ git -C ~/martech-skills pull --ff-only
 
 | Skill | What it does |
 |-------|--------------|
-| `martech-tech-review-notion` | MarTech Technical Review & Approval — exact 8-section walk + anti-slop + Notion paste shape |
+| `martech-doc` | MarTech Technical Review & Approval — exact 8-section walk + anti-slop + Notion paste shape |
 
 New skills go in `.agents/skills/<kebab-case-name>/SKILL.md`. See `TEMPLATE.md`.
 
