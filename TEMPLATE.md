@@ -1,8 +1,8 @@
 # Skill template
 
-Start a new skill as `.agents/skills/<your-name>/SKILL.md`. Three valid `name` constraints:
+Start a new skill as `.agents/skills/<your-name>/SKILL.md`. Four valid `name` constraints:
 
-- kebab-case only (lowercase letters, digits, single hyphens — e.g. `martech-tech-review-notion`)
+- kebab-case only (lowercase letters, digits, single hyphens — e.g. `martech-doc`)
 - 6–64 characters
 - no reserved words `anthropic` / `claude`
 - must equal the directory name
@@ -20,32 +20,16 @@ Description discipline:
 - max 1024 characters
 - what it does + when to use it + what it is NOT
 
-Then split deep detail into `.agents/skills/<name>/references/<topic>.md` — one level deep from SKILL.md.
+Split deep detail into `.agents/skills/<name>/references/<topic>.md` — one level deep from SKILL.md.
 
 ```markdown
 ---
 name: your-skill-name
-description: Use when <trigger> — <what it does>. Differentiator: <what it's NOT>.
+description: "Use when <trigger> — <what it does>. Differentiator: <what it's NOT>."
 ---
-
-# <Skill title>
-
-One paragraph: the outcome.
-
-## When to use / not use
-- Use when …
-- Do NOT use when … (point at the better tool)
-
-## Procedure
-1. First step.
-2. Second step.
-
-## Gotchas
-- The trap, in the imperative.
-
-## References
-- `references/other-topic.md` — load-on-demand detail.
 ```
+
+(Quote the description — YAML misparses on embedded colons.)
 
 Validate before pushing:
 

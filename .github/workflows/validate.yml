@@ -1,0 +1,34 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate skills
+        run: bash scripts/validate.sh
+      - name: Shell syntax (per-file)
+        run: for f in install.sh scripts/*.sh; do bash -n "$f"; done
+      - name: Whitespace sanity
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git diff --check '${{ github.event.pull_request.base.sha }}' HEAD
+          else
+            git diff --check HEAD~1 HEAD
+          fi
+      - name: Installer smoke (sandbox HOME)
+        run: |
+          FAKE="$(mktemp -d)"
+          mkdir -p "$FAKE/.claude"
+          HOME="$FAKE" bash install.sh
+          test -L "$FAKE/.claude/skills/martech-doc" || (echo "install smoke failed" >&2; exit 1)
+          rm -rf "$FAKE"
