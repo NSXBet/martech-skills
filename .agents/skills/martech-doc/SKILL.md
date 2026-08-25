@@ -1,6 +1,6 @@
 ---
 name: martech-doc
-description: Use when writing or reviewing a MarTech Technical Review & Approval as a Notion page — proposals touching marketing data flows, attribution, payback/LTV, segments, tracking, or integrations. Enforces the exact 8-section template, a minimal Notion layout, and an anti-slop gate. Differentiator: standardized evidence floor + presentation for MarTech approvals, not generic Notion docs or PR review.
+description: "Use when writing or reviewing a MarTech Technical Review & Approval as a Notion page — proposals touching marketing data flows, attribution, payback/LTV, segments, tracking, or integrations. Enforces the exact 8-section template, a minimal Notion layout, and an anti-slop gate. Differentiator: standardized evidence floor + presentation for MarTech approvals, not generic Notion docs or PR review."
 ---
 
 # MarTech Technical Review & Approval (Notion)
