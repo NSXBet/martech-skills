@@ -1,0 +1,3 @@
+# Source docs — keep local, never commit
+*.docx
+.DS_Store
