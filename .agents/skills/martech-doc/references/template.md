@@ -1,6 +1,8 @@
 # Template — MarTech Technical Review & Approval
 
-Exact 8-section structure. Sections are never deleted; undecided fields become `TBD — <what's missing>`, genuinely-not-applying fields become `Not applicable — <reason>`.
+This document provides MarTech Specialists with the minimum information and evidence required to review and approve a proposed change, without requiring detailed Product, Data or Technical documentation.
+
+Exact 9-section structure. Sections are never deleted; undecided fields become `TBD — <what's missing>`, genuinely-not-applying fields become `Not applicable — <reason>`.
 
 ## 1. Initiative Overview
 
@@ -11,6 +13,7 @@ Exact 8-section structure. Sections are never deleted; undecided fields become `
 | Data / Tech contact | |
 | Target go-live date | (ISO 8601 `YYYY-MM-DD`) |
 | Risk level (Low / Medium / High) | |
+| Tech submission date | (ISO 8601 `YYYY-MM-DD`) |
 
 ## 2. What Are We Changing?
 
@@ -30,7 +33,18 @@ Exact 8-section structure. Sections are never deleted; undecided fields become `
 | How we'll know it worked | |
 | What comes next | |
 
-## 3. MarTech Impact
+## 3. Supporting Evidence
+
+Only links a reviewer needs to open (or `Not applicable`):
+
+- Product / Business requirement:
+- Data specification:
+- Technical design:
+- Data Quality evidence:
+- PoC / testing:
+- Shortcut Epic / Story:
+
+## 4. MarTech Impact
 
 - [ ] Payback v1
 - [ ] Payback v1.1
@@ -52,7 +66,7 @@ Exact 8-section structure. Sections are never deleted; undecided fields become `
 
 **Impact summary:** (short explanation)
 
-## 4. Data / System Flow
+## 5. Data / System Flow
 
 **Current:** `[Source] → [System] → [Marketing Platform]`
 
@@ -64,9 +78,9 @@ Exact 8-section structure. Sections are never deleted; undecided fields become `
 | New destination | Yes / No |
 | New vendor | Yes / No |
 
-## 5. Data Quality Evidence
+## 6. Data Quality Evidence
 
-**Status:** Green / Amber / Red / N/A — no data flow changed (N/A unavailable if any §4 flag is Yes; `TBD` counts as Red)
+**Status:** Green / Amber / Red / N/A — no data flow changed (N/A unavailable if any §5 flag is Yes; `TBD` counts as Red)
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -76,7 +90,7 @@ Exact 8-section structure. Sections are never deleted; undecided fields become `
 
 **Known Data Quality Issues:**
 
-## 6. What Needs MarTech Review?
+## 7. What Needs MarTech Review?
 
 Answer every fixed item: **OK / Issue / N/A** + note.
 
@@ -94,17 +108,6 @@ Answer every fixed item: **OK / Issue / N/A** + note.
 | No additional MarTech requirements identified | | |
 | Other: ______ | | |
 
-## 7. Supporting Evidence
-
-Only links a reviewer needs to open (or `Not applicable`):
-
-- Product / Business requirement:
-- Data specification:
-- Technical design:
-- Data Quality evidence:
-- PoC / testing:
-- Shortcut Epic / Story:
-
 ## 8. MarTech Decision
 
 **Reviewer-side only. Never fill for the human.**
@@ -115,3 +118,13 @@ Only links a reviewer needs to open (or `Not applicable`):
 | Conditions / comments | `TBD — reviewer to complete` |
 | MarTech Specialist | `TBD — reviewer to complete` |
 | Date | `TBD — reviewer to complete` |
+
+## 9. Delivery Outcome Confirmation
+
+Filled after go-live, not at submission.
+
+| Field | Answer |
+|---|---|
+| Date | |
+| Business Owner | |
+| Comments | |
