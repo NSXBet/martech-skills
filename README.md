@@ -1,6 +1,6 @@
 # MarTech Skills
 
-**Internal only — not for external distribution.**
+Engineering and documentation skills maintained by NSX MarTech.
 
 ## Install / update contract
 
@@ -59,4 +59,4 @@ The skill includes [layer standards](.agents/skills/martech-medallion/references
 
 1. Branch, add `.agents/skills/<name>/` with `SKILL.md` (from `TEMPLATE.md`).
 2. `bash scripts/validate.sh` and `for f in install.sh scripts/*.sh; do bash -n "$f"; done`.
-3. Open a PR. Internal only — no production data, PII, credentials, tokens, connection strings, or internal-only identifiers.
+3. Open a PR. Do not include production data, PII, credentials, tokens, connection strings, or confidential internal identifiers.
