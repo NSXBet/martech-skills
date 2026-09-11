@@ -25,7 +25,7 @@ git -C ~/martech-skills pull --ff-only
 |-------|--------------|
 | `martech-doc` | MarTech Technical Review & Approval — 9-section walk + anti-slop + Notion paste shape |
 | `martech-medallion` | Engineering advice and readiness reviews for ingestion, Bronze/Silver/Gold, data quality, history, and Databricks governance |
-| `martech-vizualizations` | Sourced dashboard knowledge — schema/joins, KPI definitions, conventions, and SQL for the eight MarTech dashboards (FTD Tier, Payback, Copa, LTV, Attribution, Last Touch, Cockpit, Paid Media) |
+| `martech-visualizations` | Sourced dashboard knowledge — schema/joins, KPI definitions, conventions, and SQL for the eight MarTech dashboards (FTD Tier, Payback, Copa, LTV, Attribution, Last Touch, Cockpit, Paid Media) |
 
 New skills go in `.agents/skills/<kebab-case-name>/`. See `TEMPLATE.md`.
 

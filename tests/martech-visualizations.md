@@ -1,8 +1,6 @@
-# MarTech Vizualizations behavioral evaluations
+# MarTech Visualizations behavioral evaluations
 
 Maintainer scenarios for evaluating the skill after substantive edits. Synthetic inputs, not company data or production findings. Run each in a fresh agent context with the skill and its relevant references, read-only, without live services. Assess decisions and evidence discipline, not exact wording or heading matches. Do not provide the expected behavior to the evaluating agent until after its response.
-
-Execution record: 2026-09-10, fresh-context `skill-reviewer` agent, read-only, dev-workspace knowledge only. Results summarized at the end of this file after each run.
 
 ## 1. CPA and weighting
 
@@ -56,12 +54,14 @@ Expected behavior:
 - A request containing ROAS leaves it excluded.
 - Uses clean dashboard names without clone suffixes and cites source-backed rules.
 
+
 ## Validation record
 
 Dated results of actually running the scenarios above.
 
 | Date | Evaluator | Scope | Result |
 |---|---|---|---|
-| 2026-09-10 | Authoring run — structural checks only | Validator `OK — 3 skill(s) valid`; `bash -n` green; links checked; live execution record for SQL examples in `references/sql-examples.md` and `references/sources-and-review.md` | Scenarios 1–4 not yet run in a fresh agent context; next substantive edit must run them and extend this table |
+| 2026-09-10 | Authoring run — structural checks only | Validator `OK — 3 skill(s) valid`; `bash -n` green; links checked; live execution record for SQL examples in `references/sql-examples.md` and `references/sources-and-review.md` | Structural only |
+| 2026-09-11 | Four fresh-context task agents (one per scenario), read-only, no live services, skill at `.agents/skills/martech-visualizations/` | Scenarios 1–4 | All four passed. Maintainer assessed each of the four fresh responses against the expected behaviors above and found no mismatches. Scenario 1: correct dataset/AVG layer split (1.82 vs 5.5; 6.67 vs 7.5; 20 vs 31.25) with Paid Media/Cockpit CPA conflict flagged. Scenario 2: families kept separate, distinct-customer dedup correct, campaign_cpa fanout refused. Scenario 3: 10%/20% per cohort vs pooled 10.9%, zero-FTD = ANSI error not NULL, 15%/4% left unresolved, LTV 12M = 120. Scenario 4: QR precedence + all four segment outcomes, FTD+7→weekly 1, FTD+30→weekly 4/monthly 1, tier thresholds `Missing definition`, QR substitution refused, ROAS excluded |
 
-Scenario runs are synthetic: no company data, no live dashboards, no customer rows are involved. Record each run's date, evaluator, and which expected behaviors failed before extending this file.
+Scenario runs are synthetic: no company data, no live dashboards, no customer rows are involved. Record each run's date, evaluator, and which expected behaviors failed before extending this table.

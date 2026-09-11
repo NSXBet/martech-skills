@@ -1,5 +1,5 @@
 ---
-name: martech-vizualizations
+name: martech-visualizations
 description: "Use when interpreting NSX marketing dashboards (FTD by Tier, Payback, Copa Cohort Analysis, LTV, Attribution, Attribution Last Touch, Single Cockpit, Paid Media), writing or reviewing marketing SQL, or explaining KPIs like FTD, cohort retention, CPA, ARPU, payback, or LTV from these dashboards' Databricks tables. Supplies sourced schema/join contracts, exact KPI formulas, business conventions, and sourced SQL examples. Not for chart styling, medallion pipeline architecture, or MarTech approval documents."
 ---
 

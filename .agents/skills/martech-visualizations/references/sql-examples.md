@@ -2,7 +2,7 @@
 
 Seven focused examples. Each: source, output grain, required filters, status, expected columns. All select aggregate/non-PII output only. Literal synthetic dates/keys appear only inside synthetic VALUES. Examples for unknown formulas consume precomputed columns and label the derivation unknown.
 
-Examples 1, 3, 4, 5, 6 and the fanout/grain checks were executed live on dev warehouse `Martech SQL Warehouse Dev` via Statement Execution API on 2026-09-10 (aggregate-only, bounded). Example 2 and 7 were partially live (see notes); synthetic variants are clearly labeled.
+Live execution record (2026-09-10, dev warehouse `Martech SQL Warehouse Dev`, Statement Execution API, aggregate-only, bounded): the attribution rollup (Ex.1), the channel spend rollup underlying Ex.4, the Payback core (Ex.5), the LTV per-FTD query (Ex.6), and the tier/fanout/grain checks were executed live; Ex.2 ran a channel-group variant and Ex.7's offset math is synthetic-only. Where a full example below reassembles CTEs that were not part of the executed statement, it is flagged in place — treat those as `Observed SQL` composition, not as individually live-validated queries.
 
 ## 1. Attribution first-touch rollup (fixed acquisition) from `agg_daily_metrics`
 
@@ -17,8 +17,7 @@ GROUP BY macro_channel
 ORDER BY macro_channel;
 ```
 
-- Output grain: one row per `macro_channel` (add any of the seven dimension columns to drill).
-- Live result (2026-08 week): 4 rows; e.g. Paid media ≈ 9.9k signups. Add `acquisition_channel_group`/`acquisition_source` to reproduce the dashboard's `GROUP BY ALL` shape.
+- Live result at the 2026-08-01..07 window: one row per `macro_channel` (row count is environment state, not a query contract); Paid media ≈ 9.9k signups. Add `acquisition_channel_group`/`acquisition_source` to reproduce the dashboard's `GROUP BY ALL` shape.
 - This is fixed acquisition attribution; do not present it as last-touch.
 
 ## 2. Last-touch event counts and unique customers from `true_lta...30d_win`
@@ -67,7 +66,7 @@ GROUP BY f.period_type, f.period_ref;
 
 ## 4. Shared Paid Media / Cockpit channel-period acquisition + spend join
 
-Source: Paid Media datasets `15970278`/`paid_media_counters`; Cockpit `f60a6281`. Status: `Observed SQL`; channel spend rollup executed live.
+Source: Paid Media datasets `15970278`/`paid_media_counters`; Cockpit `f60a6281`. Status: `Observed SQL`; channel spend rollup executed live. The customer_view CTE expression and the ratio aliases reproduce the dashboard SQL but the exact combined query below was authored after the live run — validate joins in your environment before relying on the ratios.
 
 ```sql
 WITH customer_view AS (
@@ -113,7 +112,7 @@ SELECT customer_created_date,          -- FTD cohort month (despite the name)
        acq_spend, gp_11,
        predicted_m2payback
 FROM gold_martech.payback_v1_channels_ngr.ch_google_vrt_all_pred_metrics_for_all_curve_rolling_asof_2026_08
-WHERE customer_created_date < DATE_FORMAT(DATE_TRUNC('MONTH', CURRENT_DATE()), 'yyyy-MM')  -- dashboard excludes current month
+WHERE customer_created_date < DATE_FORMAT(DATE_TRUNC('MONTH', CURRENT_DATE()), 'yyyy-MM')  -- dashboard excludes current month; column is STRING 'YYYY-MM', compare as string
 ORDER BY customer_created_date DESC
 LIMIT 6;
 ```
